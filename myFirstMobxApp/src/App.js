@@ -1,18 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import { observable } from 'mobx'
+import { observer } from 'mobx-react'
+
 import './App.css';
 
+@observer
 class App extends Component {
+  @observable count = 0
+
+  handleDec = () => {
+    this.count--
+  }
+
+  handleInc = () => {
+    this.count++
+  }
+
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <p>Counter: {this.count}</p>
+        <button onClick={this.handleDec}>-</button>
+        <button onClick={this.handleInc}>+</button>
       </div>
     );
   }
