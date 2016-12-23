@@ -1,30 +1,26 @@
 import React, { Component } from 'react'
-import { observable } from 'mobx'
 import { observer } from 'mobx-react'
 
-import './App.css';
-
 @observer
-class App extends Component {
-  @observable count = 0
+class CounterApp extends Component {
 
   handleDec = () => {
-    this.count--
+    this.props.store.decrement()
   }
 
   handleInc = () => {
-    this.count++
+    this.props.store.increment()
   }
 
   render() {
     return (
       <div>
-        <p>Counter: {this.count}</p>
+        <p>Counter: {this.props.store.count}</p>
         <button onClick={this.handleDec}>-</button>
         <button onClick={this.handleInc}>+</button>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default CounterApp

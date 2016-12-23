@@ -1,9 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import CounterApp from './CounterApp'
+import CounterStore from './CounterStore'
+
+import './index.css'
 
 ReactDOM.render(
-  <App />,
+  <CounterApp store={CounterStore} />,
   document.getElementById('root')
-);
+)
